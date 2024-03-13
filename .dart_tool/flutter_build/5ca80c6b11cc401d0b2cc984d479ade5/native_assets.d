@@ -1,0 +1,1 @@
+ G:\\AndroidStudioProjects\\Intellibin\\Intellibin\\.dart_tool\\flutter_build\\5ca80c6b11cc401d0b2cc984d479ade5\\native_assets.yaml: 

@@ -1,0 +1,4 @@
+#Wed Mar 13 19:34:44 IST 2024
+base.0=G\:\\AndroidStudioProjects\\Intellibin\\Intellibin\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
