@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intellibin/Screens/trackpickup.dart';
 import 'home_bottomnavbar.dart';
 import 'dashboard_bottomnavbar.dart';
 import 'profile_bottomnavbar.dart';
@@ -21,7 +22,7 @@ class _homescreenState extends State<homescreen> {
     });
   }
 
-  List screens=[home_bottomnavbar(),dashboard_bottomnavbar(),tracking_bottomnavbar(),profile_bottomnavbar()];
+  List screens=[home_bottomnavbar(),dashboard_bottomnavbar(),trackpickup(),profile_bottomnavbar()];
 
   @override
 

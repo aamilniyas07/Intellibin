@@ -41,7 +41,10 @@ class _dashboard_bottomnavbarState extends State<dashboard_bottomnavbar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      SafeArea(child:
+      Scaffold(
+
       body: Column(
         children: [
           SizedBox(
@@ -190,6 +193,7 @@ Padding(padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
 
         ],
       ),
-    );
+    )
+      );
   }
 }

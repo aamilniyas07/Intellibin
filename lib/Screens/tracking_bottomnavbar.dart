@@ -13,7 +13,7 @@ class _tracking_bottomnavbarState extends State<tracking_bottomnavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Center(child: Text("Coming Soon",style: GoogleFonts.openSans(fontSize: 40),),),
+      body: Center(child: Text("Google Map",style: GoogleFonts.openSans(fontSize: 40),),),
 
     );
   }

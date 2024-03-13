@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intellibin/Screens/dashboard_bottomnavbar.dart';
+import 'package:intellibin/Screens/tracking_bottomnavbar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'reqdisposal.dart';
+import 'trackpickup.dart';
+
 class home_bottomnavbar extends StatefulWidget {
   const home_bottomnavbar({Key? key}) : super(key: key);
 
@@ -18,6 +23,16 @@ class _home_bottomnavbarState extends State<home_bottomnavbar> {
           child:
       Column(
         children: [
+
+          GestureDetector(
+            onTap: (){
+
+              Navigator.of(context).push(CustomPageRoute(
+                reqdisposal(),
+              ));
+
+            },
+            child:
           Container(
           margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.05,right:  MediaQuery.of(context).size.width*0.05,top:  MediaQuery.of(context).size.height*0.05,),
             height: MediaQuery.of(context).size.height*0.1,
@@ -35,7 +50,7 @@ class _home_bottomnavbarState extends State<home_bottomnavbar> {
             ],),
 
           ),
-
+          ),
           Container(
             margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.05,right:  MediaQuery.of(context).size.width*0.05,top:  MediaQuery.of(context).size.height*0.05,),
             height:MediaQuery.of(context).size.height*0.2 ,
@@ -154,19 +169,39 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+GestureDetector(
+  onTap:(){
 
+    Navigator.of(context).push(CustomPageRoute(
+      trackpickup(),
+    ));
+
+  },
+  child:
             Column(children: [
+
 
               Container(
                 height: MediaQuery.of(context).size.height*0.085,
                 width: MediaQuery.of(context).size.width*0.18,
                 decoration: BoxDecoration(color: Color(0xff26AD72).withOpacity(0.25),borderRadius: BorderRadius.circular(60)),
                 child: Icon(Icons.my_location_outlined,size: 40,color: Color(0xff26AD72),),),
+
               Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.005) ,
               child:
               Text("Tracking",style: GoogleFonts.openSans(color: Color(0xff595555)),)
               ),
             ],),
+),
+        GestureDetector(
+          onTap:(){
+
+            Navigator.of(context).push(CustomPageRoute(
+              dashboard_bottomnavbar(),
+            ));
+
+          },
+          child:
             Column(children: [
 
               Container(
@@ -179,6 +214,17 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
                   Text("Dashboard",style: GoogleFonts.openSans(color: Color(0xff595555)),)
               ),
             ],),
+        ),
+
+        GestureDetector(
+          onTap:(){
+
+            Navigator.of(context).push(CustomPageRoute(
+              reqdisposal(),
+            ));
+
+          },
+          child:
             Column(children: [
 
               Container(
@@ -191,6 +237,9 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
                   Text("Book Pickup",style: GoogleFonts.openSans(color: Color(0xff595555)),)
               ),
             ],),
+
+        ),
+
           ],)
 ),
           Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.025) ,
@@ -211,6 +260,16 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
                         Text("Reward",style: GoogleFonts.openSans(color: Color(0xff595555)),)
                     ),
                   ],),
+
+            GestureDetector(
+              onTap:(){
+
+                Navigator.of(context).push(CustomPageRoute(
+                  tracking_bottomnavbar(),
+                ));
+
+              },
+              child:
                   Column(children: [
 
                     Container(
@@ -223,6 +282,8 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
                         Text("Locations",style: GoogleFonts.openSans(color: Color(0xff595555)),)
                     ),
                   ],),
+            ),
+
                   Column(children: [
 
                     Container(
@@ -242,4 +303,31 @@ Padding(padding:EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03) ,
         ),
     );
   }
+}
+
+class CustomPageRoute<T> extends PageRoute<T> {
+  CustomPageRoute(this.child);
+  @override
+
+  Color get barrierColor => Colors.transparent;
+
+  @override
+  String get barrierLabel => '';
+
+  final Widget child;
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  }
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 200);
 }
