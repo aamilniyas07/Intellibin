@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intellibin/Screens/tracking_bottomnavbar.dart';
 import 'package:intellibin/Screens/trackpickup.dart';
 import 'home_bottomnavbar.dart';
 import 'dashboard_bottomnavbar.dart';
 import 'profile_bottomnavbar.dart';
-import 'tracking_bottomnavbar.dart';
+
 
 class homescreen extends StatefulWidget {
   const homescreen({Key? key}) : super(key: key);
@@ -17,9 +18,22 @@ class _homescreenState extends State<homescreen> {
 
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+
+if(index==2)
+  {
+    Navigator.of(context).push(CustomPageRoute(
+      trackpickup(),
+    ));
+
+
+
+  }
+else {
+  setState(() {
+    _selectedIndex = index;
+  });
+}
+
   }
 
   List screens=[home_bottomnavbar(),dashboard_bottomnavbar(),trackpickup(),profile_bottomnavbar()];
@@ -29,22 +43,22 @@ class _homescreenState extends State<homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-actions: [
+      appBar: _selectedIndex==3?null:AppBar(
+        actions: [
 
-  Padding(padding:EdgeInsets.only(right: MediaQuery.of(context).size.width*0.05) ,
-  child:
-      Container(
-        height:MediaQuery.of(context).size.height*0.05 ,
-  width: MediaQuery.of(context).size.width*0.1,
-  decoration: BoxDecoration(color: Color(0xffCBE9D1),borderRadius: BorderRadius.circular(50)),
-  child:
+          Padding(padding:EdgeInsets.only(right: MediaQuery.of(context).size.width*0.05) ,
+            child:
+            Container(
+              height:MediaQuery.of(context).size.height*0.05 ,
+              width: MediaQuery.of(context).size.width*0.1,
+              decoration: BoxDecoration(color: Color(0xffCBE9D1),borderRadius: BorderRadius.circular(50)),
+              child:
 
-  Icon(Icons.notifications_none_outlined),
-      ),
-  ),
+              Icon(Icons.notifications_none_outlined),
+            ),
+          ),
 
-],
+        ],
         automaticallyImplyLeading: false,
         title: Text("Hello Arjun!",style: GoogleFonts.openSans(fontSize: 20),),
         leading: Image.asset("assets/images/photo.png"),
@@ -79,4 +93,32 @@ actions: [
 
     );
   }
+}
+
+
+class CustomPageRoute<T> extends PageRoute<T> {
+  CustomPageRoute(this.child);
+  @override
+
+  Color get barrierColor => Colors.transparent;
+
+  @override
+  String get barrierLabel => '';
+
+  final Widget child;
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  }
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 200);
 }

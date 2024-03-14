@@ -39,6 +39,9 @@ dependencies:
   percent_indicator: ^4.2.3
   dropdown_button2: ^2.3.9
   pie_chart: ^5.4.0
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  cloud_firestore: ^4.15.8
 
 dev_dependencies:
   flutter_test:

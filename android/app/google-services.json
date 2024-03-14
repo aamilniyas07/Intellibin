@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394803271131",
+    "project_id": "intellibin-1dcee",
+    "storage_bucket": "intellibin-1dcee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394803271131:android:1cdcfd07fe889378c8c3fe",
+        "android_client_info": {
+          "package_name": "com.Intellibin.intellibin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDasDNvcdpmqXfzAz_C2aq9SQZYJm_L4p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

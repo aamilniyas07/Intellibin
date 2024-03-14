@@ -5,6 +5,7 @@ import 'package:intellibin/Screens/tracking_bottomnavbar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'reqdisposal.dart';
 import 'trackpickup.dart';
+import 'articles.dart';
 
 class home_bottomnavbar extends StatefulWidget {
   const home_bottomnavbar({Key? key}) : super(key: key);
@@ -284,6 +285,15 @@ GestureDetector(
                   ],),
             ),
 
+            GestureDetector(
+              onTap:(){
+
+                Navigator.of(context).push(CustomPageRoute(
+                  articles(),
+                ));
+
+              },
+              child:
                   Column(children: [
 
                     Container(
@@ -296,6 +306,9 @@ GestureDetector(
                         Text("Articles",style: GoogleFonts.openSans(color: Color(0xff595555)),)
                     ),
                   ],),
+            ),
+
+
                 ],)
           ),
         ],
